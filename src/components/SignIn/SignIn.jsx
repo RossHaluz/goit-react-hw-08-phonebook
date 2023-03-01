@@ -26,7 +26,7 @@ const Register = () => {
   };
 
   const onSubmitForm = (values, { resetForm }) => {
-    dispatch(authOperations.register({ values }));
+    dispatch(authOperations.register(values));
     resetForm();
   };
 
