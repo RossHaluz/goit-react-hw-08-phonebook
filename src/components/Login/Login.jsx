@@ -1,9 +1,10 @@
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
-import { LoginForm, LoginFormInput, LoginFormBtn, Error } from './Login.styled';
+import { LoginForm, Error } from './Login.styled';
 import * as authOperations from 'redux/auth/operations';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { TextField, Button, Typography } from '@mui/material';
 
 let schema = yup.object().shape({
   email: yup.string().required(),
@@ -30,23 +31,27 @@ const Login = () => {
       validationSchema={schema}
     >
       <LoginForm>
-        <LoginFormInput
-          type="email"
+        <TextField
+          id="outlined-basic"
+          label="E-mail"
+          variant="outlined"
           name="email"
-          placeholder="Type your email"
         />
         <Error component="p" name="email" />
-        <LoginFormInput
-          type="password"
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
           name="password"
-          placeholder="Type you password"
         />
         <Error component="p" name="password" />
 
-        <LoginFormBtn type="submit">Login</LoginFormBtn>
-        <p>
+        <Button variant="contained" type="submit">
+          Login
+        </Button>
+        <Typography variant="p">
           Or <Link to="/register">Register</Link>
-        </p>
+        </Typography>
       </LoginForm>
     </Formik>
   );

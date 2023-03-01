@@ -1,14 +1,11 @@
-import {
-  SignInForm,
-  SignInFormInput,
-  SignInFormBtn,
-  Error,
-} from './SignIn.styled';
+import { SignInForm, Error } from './SignIn.styled';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import * as authOperations from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import { TextField, Typography } from '@mui/material';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
@@ -37,26 +34,35 @@ const Register = () => {
       onSubmit={onSubmitForm}
     >
       <SignInForm>
-        <SignInFormInput type="text" name="name" placeholder="Type your name" />
+        <TextField
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
+          name="name"
+        />
         <Error component="p" name="name" />
-        <SignInFormInput
-          type="email"
+        <TextField
+          id="outlined-basic"
+          label="E-mail"
+          variant="outlined"
           name="email"
-          placeholder="Type your email"
         />
         <Error component="p" name="email" />
-        <SignInFormInput
-          type="password"
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
           name="password"
-          placeholder="Type a password"
         />
         <Error component="p" name="password" />
 
-        <SignInFormBtn type="submit">Regisater</SignInFormBtn>
+        <Button variant="contained" type="submit">
+          Regisater
+        </Button>
 
-        <p>
+        <Typography variant="p">
           If you already have an account <Link to="/login">Log in</Link>
-        </p>
+        </Typography>
       </SignInForm>
     </Formik>
   );
