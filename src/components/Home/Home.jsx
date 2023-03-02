@@ -1,11 +1,7 @@
-import { Typography } from '@mui/material';
+import { HomeTitle } from './Home.styled';
 
 const Home = () => {
-  return (
-    <Typography variant="h1" component={'h3'}>
-      Welcome home
-    </Typography>
-  );
+  return <HomeTitle variant="h1">Welcome home</HomeTitle>;
 };
 
 export default Home;
