@@ -7,10 +7,16 @@ import { SignInForm } from './Registration.styled';
 import { useDispatch } from 'react-redux';
 import * as authOperation from 'redux/auth/operations';
 
-let schema = yup.object().shape({
-  name: yup.string().required(),
-  email: yup.string().required(),
-  password: yup.number().required(),
+let schema = yup.object({
+  name: yup.string('Enter your name').required('Name is required'),
+  email: yup
+    .string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string('Enter your password')
+    .min(8, 'Password should be of minimum 8 characters length')
+    .required('Password is required'),
 });
 
 const Register = () => {
@@ -50,6 +56,7 @@ const Register = () => {
         value={formik.values.email}
         onChange={formik.handleChange}
         error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
       />
 
       <TextField
@@ -61,6 +68,7 @@ const Register = () => {
         value={formik.values.password}
         onChange={formik.handleChange}
         error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.email && formik.errors.email}
       />
 
       <Button variant="contained" type="submit">
