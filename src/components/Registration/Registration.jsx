@@ -1,32 +1,46 @@
 import { useFormik } from 'formik';
-import { Link } from 'react-router-dom';
-import { LoginForm } from './Login.styled';
 import * as yup from 'yup';
-import { TextField, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import { TextField, Typography } from '@mui/material';
+import { SignInForm } from './Registration.styled';
 import { useDispatch } from 'react-redux';
 import * as authOperation from 'redux/auth/operations';
 
 let schema = yup.object().shape({
+  name: yup.string().required(),
   email: yup.string().required(),
-  password: yup.string().required(),
+  password: yup.number().required(),
 });
 
-const Login = () => {
+const Register = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
+      name: '',
       email: '',
       password: '',
     },
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
-      dispatch(authOperation.login(values));
+      dispatch(authOperation.register(values));
       resetForm();
     },
   });
 
   return (
-    <LoginForm onSubmit={formik.handleSubmit}>
+    <SignInForm onSubmit={formik.handleSubmit}>
+      <TextField
+        id="name"
+        type="text"
+        label="Name"
+        variant="outlined"
+        name="name"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        error={formik.touched.name && Boolean(formik.errors.name)}
+      />
+
       <TextField
         id="email"
         type="email"
@@ -37,6 +51,7 @@ const Login = () => {
         onChange={formik.handleChange}
         error={formik.touched.email && Boolean(formik.errors.email)}
       />
+
       <TextField
         id="password"
         type="password"
@@ -49,13 +64,14 @@ const Login = () => {
       />
 
       <Button variant="contained" type="submit">
-        Login
+        Regisater
       </Button>
+
       <Typography variant="p">
-        Or <Link to="/signout">Register</Link>
+        If you already have an account <Link to="/login">Log in</Link>
       </Typography>
-    </LoginForm>
+    </SignInForm>
   );
 };
 
-export default Login;
+export default Register;

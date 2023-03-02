@@ -1,19 +1,18 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const AuthNavigation = styled.nav``;
+export const AuthNavigation = styled.nav`
+  display: flex;
+  gap: 15px;
+`;
 
 export const AuthNavigationLink = styled(NavLink)`
-  color: #fff;
-  margin-right: 10px;
+  color: white;
   font-size: 18px;
+  font-weight: 500;
 
   &.active {
     color: orange;
-    text-decoration: underline;
-  }
-
-  :last-child {
-    margin-right: 0;
+    border-bottom: 2px solid orange;
   }
 `;

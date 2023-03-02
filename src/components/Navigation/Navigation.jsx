@@ -1,11 +1,11 @@
-import { NavigationLink } from './Navigation.styled';
+import { MaineNavigation, MaineNavigationLink } from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <nav>
-      <NavigationLink to="/">Home</NavigationLink>
-      <NavigationLink to="/products">Products</NavigationLink>
-    </nav>
+    <MaineNavigation>
+      <MaineNavigationLink to="/">Home</MaineNavigationLink>
+      <MaineNavigationLink to="/contact-form">Contacts</MaineNavigationLink>
+    </MaineNavigation>
   );
 };
 
