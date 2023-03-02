@@ -11,7 +11,14 @@ const FilterContacts = () => {
   };
 
   return (
-    <InputFilter type="text" value={inputValue} onChange={onChangeInput} />
+    <InputFilter
+      type="text"
+      value={inputValue}
+      onChange={onChangeInput}
+      id="outlined-basic"
+      label="Filter contacts"
+      variant="outlined"
+    />
   );
 };
 

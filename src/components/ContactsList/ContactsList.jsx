@@ -37,11 +37,11 @@ const ContactsList = () => {
             .filter(({ name }) =>
               name.toLowerCase().includes(filter.toLowerCase())
             )
-            .map(({ id, name, phone }) => {
+            .map(({ id, name, number }) => {
               return (
                 <ContactsItem key={id}>
                   <ContactsItemName>{name}:</ContactsItemName>
-                  <ContactsItemNumber> {phone}</ContactsItemNumber>
+                  <ContactsItemNumber> {number}</ContactsItemNumber>
                   <ContactBtnDelete
                     type="button"
                     onClick={() =>

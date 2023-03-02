@@ -5,8 +5,9 @@ import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperation from 'redux/contacts/operations';
 import { Button, TextField } from '@mui/material';
-import { FormContact } from './ContactForm.styled';
+import { ContactTitle, FormContact } from './ContactForm.styled';
 import ContactsList from 'components/ContactsList';
+import FilterContacts from 'components/FilterContacts';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
@@ -44,6 +45,9 @@ const ContactForm = () => {
 
   return (
     <>
+      <ContactTitle variant="h2" sx={{ mb: '10px' }}>
+        Add contact
+      </ContactTitle>
       <FormContact onSubmit={formik.handleSubmit}>
         <TextField
           id="name"
@@ -69,7 +73,7 @@ const ContactForm = () => {
           Add contact
         </Button>
       </FormContact>
-
+      <FilterContacts />
       <ContactsList />
     </>
   );

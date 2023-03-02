@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+import { TextField } from '@mui/material';
 
-export const InputFilter = styled.input`
+export const InputFilter = styled(TextField)`
   width: 250px;
-  padding: 8px 10px;
+  padding: 0;
   border-radius: 10px;
   font-size: 13px;
   margin-bottom: 15px;
-  border: 1px solid gray;
+  margin-top: 15px;
 `;

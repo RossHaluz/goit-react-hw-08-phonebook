@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
+import { Typography } from '@mui/material';
 
 export const FormContact = styled.form`
   max-width: 250px;
@@ -36,4 +37,9 @@ export const FormButton = styled.button`
 
 export const Error = styled(ErrorMessage)`
   color: red;
+`;
+
+export const ContactTitle = styled(Typography)`
+  font-size: 24px;
+  font-weight: 500;
 `;
