@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
+import { Button } from '@mui/material';
 
 export const Contacts = styled.ul`
   margin: 0;
+  list-style: none;
+  padding: 0;
 `;
 
 export const ContactsItem = styled.li`
@@ -18,12 +21,6 @@ export const ContactsItemNumber = styled.span`
   font-size: 16px;
 `;
 
-export const ContactBtnDelete = styled.button`
-  background-color: #35363a;
-  color: white;
-  padding: 5px;
-  font-size: 16px;
+export const ContactBtnDelete = styled(Button)`
   margin-left: 15px;
-  border-radius: 5px;
-  cursor: pointer;
 `;

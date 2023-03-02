@@ -9,6 +9,7 @@ import {
   ContactsItemNumber,
   ContactBtnDelete,
 } from './ContactsList.styled';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ContactsList = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -43,6 +44,8 @@ const ContactsList = () => {
                   <ContactsItemName>{name}:</ContactsItemName>
                   <ContactsItemNumber> {number}</ContactsItemNumber>
                   <ContactBtnDelete
+                    variant="outlined"
+                    startIcon={<DeleteIcon />}
                     type="button"
                     onClick={() =>
                       dispatch(contactsOperation.deleteContact(id))
