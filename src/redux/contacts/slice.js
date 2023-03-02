@@ -1,11 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  fetchContacts,
+  getContacts,
   addContact,
   deleteContact,
-} from 'redux/contactsOperation';
+} from 'redux/contacts/operations';
 
-const extraActions = [fetchContacts, addContact, deleteContact];
+const extraActions = [getContacts, addContact, deleteContact];
 const getActions = type => extraActions.map(action => action[type]);
 
 export const contactsSlice = createSlice({
@@ -18,7 +18,7 @@ export const contactsSlice = createSlice({
 
   extraReducers: builder => {
     return builder
-      .addCase(fetchContacts.fulfilled, (state, action) => {
+      .addCase(getContacts.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {

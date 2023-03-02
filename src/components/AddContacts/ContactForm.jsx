@@ -3,13 +3,14 @@ import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import * as contactsOperation from 'redux/contactsOperation';
+import * as contactsOperation from 'redux/contacts/operations';
 import { Button, TextField } from '@mui/material';
 import { FormContact } from './ContactForm.styled';
+import ContactsList from 'components/ContactsList';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
-  phone: yup.number().required(),
+  number: yup.number().required(),
 });
 
 const ContactForm = () => {
@@ -19,14 +20,14 @@ const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      phone: '',
+      number: '',
     },
 
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
       const findName = contacts.find(
         contact =>
-          contact.name === values.name && contact.phone === values.phone
+          contact.name === values.name && contact.number === values.number
       );
 
       if (findName) {
@@ -42,31 +43,35 @@ const ContactForm = () => {
   });
 
   return (
-    <FormContact onSubmit={formik.handleSubmit}>
-      <TextField
-        id="name"
-        type="text"
-        name="name"
-        label="Name"
-        value={formik.values.name}
-        onChange={formik.handleChange}
-        error={formik.touched.name && Boolean(formik.errors.name)}
-      />
+    <>
+      <FormContact onSubmit={formik.handleSubmit}>
+        <TextField
+          id="name"
+          type="text"
+          name="name"
+          label="Name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+        />
 
-      <TextField
-        id="phone"
-        type="text"
-        name="phone"
-        label="Phone"
-        value={formik.values.phone}
-        onChange={formik.handleChange}
-        error={formik.touched.phone && Boolean(formik.errors.phone)}
-      />
+        <TextField
+          id="number"
+          type="text"
+          name="number"
+          label="Phone"
+          value={formik.values.number}
+          onChange={formik.handleChange}
+          error={formik.touched.number && Boolean(formik.errors.number)}
+        />
 
-      <Button variant="contained" type="submit">
-        Add contact
-      </Button>
-    </FormContact>
+        <Button variant="contained" type="submit">
+          Add contact
+        </Button>
+      </FormContact>
+
+      <ContactsList />
+    </>
   );
 };
 

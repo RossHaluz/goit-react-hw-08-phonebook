@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as contactsOperation from 'redux/contactsOperation';
+import * as contactsOperation from 'redux/contacts/operations';
 import { RotatingLines } from 'react-loader-spinner';
 import {
   Contacts,
@@ -17,7 +17,7 @@ const ContactsList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(contactsOperation.fetchContacts());
+    dispatch(contactsOperation.getContacts());
   }, [dispatch]);
 
   return (
@@ -31,7 +31,7 @@ const ContactsList = () => {
           visible={true}
         />
       )}
-      {contacts.length > 0 && !loading && (
+      {contacts && contacts.length > 0 && !loading && (
         <Contacts>
           {contacts
             .filter(({ name }) =>
