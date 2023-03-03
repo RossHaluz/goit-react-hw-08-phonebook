@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 export const Contacts = styled.ul`
   margin: 0;
+  text-align: center;
   list-style: none;
   padding: 0;
 `;
@@ -21,6 +22,10 @@ export const ContactsItemNumber = styled.span`
   font-size: 16px;
 `;
 
-export const ContactBtnDelete = styled(Button)`
+export const ContactBtnDelete = styled(IconButton)`
   margin-left: 15px;
+`;
+
+export const ContactsContainer = styled.div`
+  text-align: center;
 `;

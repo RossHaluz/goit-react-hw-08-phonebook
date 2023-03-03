@@ -1,6 +1,5 @@
 import { useAuth } from 'components/hooks/useAuth';
-import { FiSmile } from 'react-icons/fi';
-import { ButtonLogOut, UserMenuContainer } from './UserMenu.styled';
+import { ButtonLogOut, IconAcount, UserMenuContainer } from './UserMenu.styled';
 import * as authOperation from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 
@@ -10,9 +9,9 @@ const UserMenu = () => {
 
   return (
     <UserMenuContainer>
-      <FiSmile />
+      <IconAcount />
       <p>
-        Welcome, <b>{user.name}</b>
+        <b>{user.name}</b>
       </p>
       <ButtonLogOut
         variant="contained"

@@ -45,7 +45,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <ContactTitle variant="h2" sx={{ mb: '10px' }}>
+      <ContactTitle variant="h2" sx={{ mb: '12px' }}>
         Add contact
       </ContactTitle>
       <FormContact onSubmit={formik.handleSubmit}>

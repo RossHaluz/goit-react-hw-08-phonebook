@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 export const FormContact = styled.form`
   max-width: 250px;
   display: flex;
+  margin: 0 auto;
   gap: 20px;
   flex-direction: column;
 `;
@@ -42,4 +43,5 @@ export const Error = styled(ErrorMessage)`
 export const ContactTitle = styled(Typography)`
   font-size: 24px;
   font-weight: 500;
+  text-align: center;
 `;

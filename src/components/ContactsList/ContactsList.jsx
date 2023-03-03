@@ -8,6 +8,7 @@ import {
   ContactsItemName,
   ContactsItemNumber,
   ContactBtnDelete,
+  ContactsContainer,
 } from './ContactsList.styled';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -22,7 +23,7 @@ const ContactsList = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <ContactsContainer>
       {loading && (
         <RotatingLines
           strokeColor="grey"
@@ -44,21 +45,20 @@ const ContactsList = () => {
                   <ContactsItemName>{name}:</ContactsItemName>
                   <ContactsItemNumber> {number}</ContactsItemNumber>
                   <ContactBtnDelete
-                    variant="outlined"
-                    startIcon={<DeleteIcon />}
+                    aria-label="delete"
                     type="button"
                     onClick={() =>
                       dispatch(contactsOperation.deleteContact(id))
                     }
                   >
-                    Delete
+                    <DeleteIcon />
                   </ContactBtnDelete>
                 </ContactsItem>
               );
             })}
         </Contacts>
       )}
-    </>
+    </ContactsContainer>
   );
 };
 

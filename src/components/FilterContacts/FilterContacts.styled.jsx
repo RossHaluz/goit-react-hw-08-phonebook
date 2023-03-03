@@ -6,6 +6,8 @@ export const InputFilter = styled(TextField)`
   padding: 0;
   border-radius: 10px;
   font-size: 13px;
-  margin-bottom: 15px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
   margin-top: 15px;
 `;

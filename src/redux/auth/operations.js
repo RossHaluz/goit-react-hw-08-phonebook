@@ -31,10 +31,10 @@ export const login = createAsyncThunk('auth/login', async (credentials, {rejectW
    }
 })
 
-export const logout = createAsyncThunk('auth/logout', async (_, {rejectWithValue}) => {
-   try {
-       await axios.post('/users/logout')
-       removeAuthHeader()
+export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
+    try {
+        await axios.post('/users/logout')
+        removeAuthHeader()
        
    } catch (error) {
     return rejectWithValue(error.messege)
