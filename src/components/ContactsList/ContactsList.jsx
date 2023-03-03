@@ -11,6 +11,8 @@ import {
   ContactsContainer,
 } from './ContactsList.styled';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CreateIcon from '@mui/icons-material/Create';
+import { IconButton } from '@mui/material';
 
 const ContactsList = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -53,6 +55,9 @@ const ContactsList = () => {
                   >
                     <DeleteIcon />
                   </ContactBtnDelete>
+                  <IconButton aria-label="create" type="button">
+                    <CreateIcon />
+                  </IconButton>
                 </ContactsItem>
               );
             })}

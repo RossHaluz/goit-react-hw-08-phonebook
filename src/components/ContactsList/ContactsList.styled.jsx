@@ -23,7 +23,7 @@ export const ContactsItemNumber = styled.span`
 `;
 
 export const ContactBtnDelete = styled(IconButton)`
-  margin-left: 15px;
+  margin-left: 5px;
 `;
 
 export const ContactsContainer = styled.div`
