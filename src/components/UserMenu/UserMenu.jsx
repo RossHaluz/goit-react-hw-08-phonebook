@@ -19,7 +19,7 @@ const UserMenu = () => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         variant="dot"
       >
-        <Avatar alt="Avatar" src="/static/images/avatar/1.jpg" />
+        <Avatar alt={user.name} src="/static/images/avatar/1.jpg" />
       </StyledBadge>
       <p>
         <b>{user.name}</b>

@@ -55,6 +55,15 @@ const UpdateContact = ({ data, onClose }) => {
         <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
         </Button>
+        <Button
+          color="primary"
+          variant="outlined"
+          fullWidth
+          type="button"
+          onClick={onClose}
+        >
+          Cancel
+        </Button>
       </Form>
     </Modal>
   );

@@ -5,7 +5,6 @@ import {
 } from './ContactItem.styled';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
-import { IconButton } from '@mui/material';
 import UpdateContact from 'components/UpdateContact';
 import * as contactsOperation from 'redux/contacts/operations';
 import { useDispatch } from 'react-redux';
