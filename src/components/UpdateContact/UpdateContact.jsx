@@ -22,9 +22,11 @@ const UpdateContact = ({ data, onClose }) => {
       number: number,
     },
     validationSchema: validationSchema,
-    onSubmit: values => {
+    onSubmit: (values, { resetForm }) => {
       dispatch(ContactOparetion.updateContsct({ id, ...values }));
       onClose();
+      resetForm();
+      dispatch(ContactOparetion.getContacts());
     },
   });
 
