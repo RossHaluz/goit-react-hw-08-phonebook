@@ -1,7 +1,12 @@
 import { useAuth } from 'components/hooks/useAuth';
-import { ButtonLogOut, IconAcount, UserMenuContainer } from './UserMenu.styled';
+import {
+  ButtonLogOut,
+  StyledBadge,
+  UserMenuContainer,
+} from './UserMenu.styled';
 import * as authOperation from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import Avatar from '@mui/material/Avatar';
 
 const UserMenu = () => {
   const { user } = useAuth();
@@ -9,7 +14,13 @@ const UserMenu = () => {
 
   return (
     <UserMenuContainer>
-      <IconAcount />
+      <StyledBadge
+        overlap="circular"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        variant="dot"
+      >
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      </StyledBadge>
       <p>
         <b>{user.name}</b>
       </p>
