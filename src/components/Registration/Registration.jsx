@@ -76,7 +76,7 @@ const Register = () => {
       </Button>
 
       <Typography variant="p">
-        If you already have an account <Link to="/login">Log in</Link>
+        If you already have an account <Link to="/">Log in</Link>
       </Typography>
     </SignInForm>
   );

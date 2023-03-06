@@ -38,7 +38,7 @@ const App = () => {
           }
         />
         <Route
-          path="login"
+          index
           element={
             <RestrictedRoute
               component={<LoginPage />}
