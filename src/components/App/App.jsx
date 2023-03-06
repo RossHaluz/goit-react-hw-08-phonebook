@@ -26,7 +26,7 @@ const App = () => {
         <Route
           path="contact-form"
           element={
-            <PrivateRout component={<ContactFormPage />} redirectTo="/login" />
+            <PrivateRout component={<ContactFormPage />} redirectTo="/" />
           }
         />
         <Route
