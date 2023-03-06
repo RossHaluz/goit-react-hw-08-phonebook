@@ -27,7 +27,9 @@ const ContactsList = () => {
         />
       )}
       {contacts && contacts.length > 0 && !loading && (
-        <Contacts>
+        <Contacts
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        >
           {contacts
             .filter(({ name }) =>
               name.toLowerCase().includes(filter.toLowerCase())

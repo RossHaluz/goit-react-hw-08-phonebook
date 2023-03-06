@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+import { List } from '@mui/material';
 
-export const Contacts = styled.ul`
-  margin: 0;
-  text-align: center;
-  list-style: none;
-  padding: 0;
+export const Contacts = styled(List)`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 20px;
 `;
 
 export const ContactsContainer = styled.div`
