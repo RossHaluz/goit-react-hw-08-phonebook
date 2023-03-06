@@ -15,10 +15,10 @@ import { useState } from 'react';
 const ContactItem = ({ data }) => {
   const dispatch = useDispatch();
   const { id, name, number } = data;
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const updateContact = () => {
-    setIsShowModal(prev => !prev);
+  const onShowModal = () => {
+    setIsOpen(prev => !prev);
   };
 
   return (
@@ -33,11 +33,11 @@ const ContactItem = ({ data }) => {
         >
           <DeleteIcon />
         </ContactBtnDelete>
-        <IconButton aria-label="create" type="button" onClick={updateContact}>
+        <IconButton aria-label="create" type="button" onClick={onShowModal}>
           <CreateIcon />
         </IconButton>
       </ContactsItem>
-      {isShowModal && <UpdateContact data={data} onClose={updateContact} />}
+      {isOpen && <UpdateContact data={data} onClose={onShowModal} />}
     </>
   );
 };
