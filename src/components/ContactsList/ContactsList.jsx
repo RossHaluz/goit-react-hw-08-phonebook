@@ -2,17 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperation from 'redux/contacts/operations';
 import { RotatingLines } from 'react-loader-spinner';
-import {
-  Contacts,
-  ContactsItem,
-  ContactsItemName,
-  ContactsItemNumber,
-  ContactBtnDelete,
-  ContactsContainer,
-} from './ContactsList.styled';
-import DeleteIcon from '@mui/icons-material/Delete';
-import CreateIcon from '@mui/icons-material/Create';
-import { IconButton } from '@mui/material';
+import { Contacts, ContactsContainer } from './ContactsList.styled';
+import ContactItem from 'components/ContactItem';
 
 const ContactsList = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -41,25 +32,8 @@ const ContactsList = () => {
             .filter(({ name }) =>
               name.toLowerCase().includes(filter.toLowerCase())
             )
-            .map(({ id, name, number }) => {
-              return (
-                <ContactsItem key={id}>
-                  <ContactsItemName>{name}:</ContactsItemName>
-                  <ContactsItemNumber> {number}</ContactsItemNumber>
-                  <ContactBtnDelete
-                    aria-label="delete"
-                    type="button"
-                    onClick={() =>
-                      dispatch(contactsOperation.deleteContact(id))
-                    }
-                  >
-                    <DeleteIcon />
-                  </ContactBtnDelete>
-                  <IconButton aria-label="create" type="button">
-                    <CreateIcon />
-                  </IconButton>
-                </ContactsItem>
-              );
+            .map(contact => {
+              return <ContactItem key={contact.id} data={contact} />;
             })}
         </Contacts>
       )}

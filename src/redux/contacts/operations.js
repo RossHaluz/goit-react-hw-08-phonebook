@@ -40,3 +40,16 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const updateContsct = createAsyncThunk('contact/updateContact', async (contactId, {rejectWithValue}) => {
+  try {
+    const {id, name, number} = contactId
+    const { data } = await axios.patch(`/contacts/${id}`, {
+      name,
+      number
+    })
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message)
+  }
+})
