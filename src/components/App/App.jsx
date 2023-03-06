@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import * as userOperation from 'redux/auth/operations';
 import { PrivateRout } from 'components/PrivateRout/PrivateRout';
 import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
+import ErrorPage from 'page/ErrorPage';
 
 const ContactFormPage = lazy(() => import('page/ContactFormPage'));
 // const HomePage = lazy(() => import('page/HomePage'));
@@ -46,6 +47,7 @@ const App = () => {
             />
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
   );
